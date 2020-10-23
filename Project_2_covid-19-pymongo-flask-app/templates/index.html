@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COVID 19</title>
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+    <!--D3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+
+    <!-- Plotly. See: https://plotly.com/javascript/getting-started/ -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- API key -->
+        <script type="text/javascript" src="static/js/config.js"></script>
+   
+     <!-- style -->
+  <link rel="stylesheet" href="./static/CSS/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+  <!-- header -->
+    <div class="row ">
+      <div id="canvas-container" class="col-md-12 text-center" >
+      <canvas id="headerCanvas" width="960" height="100">
+      </canvas>
+      <div class = "banner-text"> 
+        <h1>covid-19 dashboard</h1>
+        </div> 
+      </div>
+    </div>
+  <!-- header -->
+   <!-- body -->
+    <!-- Arun's Map -->
+     <div class="row ">
+          <div class = 'col-md-12'> 
+           <div class="sumary-panel">
+               <div id="sumary-top" class="sumary-panel-body"></div>
+           </div>
+         </div>
+     </div>
+   <div class="row ">
+          <div class = 'col-md-2 side-panel'> 
+          <div class="countrySelected">
+            <h6>Country:</h6>
+            <select id="selCountry" onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="panel-primary">
+              <div class="panel-heading">
+                <h6 class="panel-title">Sumary of Cases</h6>
+              </div>
+               <div id="sumary" class="panel-body"></div>
+           </div>
+            </div>
+            <div class = 'col-md-10'> 
+                <!-- animation bar graph using D3 -->
+                <div class="text-center">
+                    <div id="barChart"></div> 
+                </div>
+         </div>
+  </div>
+
+  <div class="row geoMapCountries">
+      <div class="col-md-12 ">
+         <div>
+            <canvas id="bar-chart-grouped" ></canvas>
+            <p id="captionChange"></p>
+         </div>
+      </div>
+  </div>
+
+  <div class="row geoMapCountries">
+      <div class="col-md-12 ">
+      <h3 class="geomap-title">Coronavirus Map: Confirmed Cases Wordwide</h3>
+        <div id="regions_div" style="width: 900px; height: 500px;"></div>
+      </div>
+  </div>
+
+  <div class="row geoMapCountries">
+    <div class="col-md-12 ">
+      <h3 class="geomap-title">Top 20 States affected by Coronavirus in the United States</h3>
+       <canvas id="stackedBarChart"></canvas>
+       <p id="caption"></p>
+    </div>
+  </div>
+   <!-- Arun's Map end-->
+
+  <!-- Grant's Map -->
+  <div class="row geoMapCountries">
+    <div class="col-md-12 ">
+    <h3 class="geomap-title">Coronavirus Map: Confirmed Cases in US by County</h3>
+      <div id="us_div" style="width: 900px; height: 500px;"></div>
+    </div>
+  </div>
+
+  <!-- Alexis will put his graph here. -->
+  <div class="row geoMapCountries">
+    <div class="col-md-12 ">
+    <h3 class="geomap-title">COVID-19 Growth</h3>
+      <div id="us_timeseries_cases" style="width: 900px; height: 500px;"></div>
+      <div id="us_timeseries_deaths" style="width: 900px; height: 500px;"></div>
+    </div>
+  </div>
+   <!-- Alexis will put his graph here. - END -->
+
+    <!-- Pull down Plotly example code. -->
+    <div class="row geoMapCountries">
+      <div class="col-md-12 ">
+  
+    <div class="showcase__section" id="bubble">
+    <!-- <div class="row" id="bubble"> -->
+      <div class="spacer --small"></div>
+      <div id="bubbleplots">
+        <div class="bubbleplot" data-num="0">
+          <div class="plot" id="plotdiv"></div>
+          <div class="control-row">
+            Country: <select class="countrydata">
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+  <!-- Pull down Plotly example code - END -->
+
+    <!-- body -->
+  </div>
+
+    <!-- Footer-->
+  <div id="footer">
+    <p>copyright &copy; 2020</p>
+  </div>
+
+    <!-- Loading javascript framework libraries: -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script> -->
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+
+   
+  
+  
+  <!-- Loading our javascript code: -->
+  <!-- Arun's charts -->
+   <script src="./static/js/app_time_series.js" type='text/javascript'></script>
+   <script src="./static/js/app_time_series_us.js" type='text/javascript'></script>
+  <script src="./static/js/header_animation.js" type='text/javascript'></script>
+
+    <!-- Grant's charts -->
+    <script src="./static/js/logic.js"></script> <!-- Grant's code for the US County Map -->
+
+    <!-- Alexis's charts -->
+    <script src="./static/js/logic-timeseries.js"></script> <!-- Alexis' code for timeseries plots -->
+    <!-- <script src="./static/js/dropdown_chart.js"></script> Alexis' code for timeseries plots -->
+
+</body>
+
+</html>

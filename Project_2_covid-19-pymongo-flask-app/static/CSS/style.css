@@ -1,0 +1,214 @@
+/* Color Theme Swatches in Hex */
+.Graphic-Design-1-hex { color: #88C1F2; }
+.Graphic-Design-2-hex { color: #bfae9f; }
+.Graphic-Design-3-hex { color: #40291C; }
+.Graphic-Design-4-hex { color: #8C4A32; }
+.Graphic-Design-5-hex { color: #8C2A2A; }
+.Graphic-Design-5-hex { color: #fac934; }
+
+.body{
+  font-family:  Arial, Helvetica, sans-serif;
+  color: #40291C;
+}
+
+.row{
+  margin-bottom: 20px;
+}
+
+.banner-text h1{
+color: #40291C;;
+font-family:  Arial, Helvetica, sans-serif;
+font-size: 53px;
+letter-spacing: 10px;
+font-weight: 600;
+width: 100%;
+height: 100%;
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+text-align: center;
+}
+
+.sumary-panel p{
+  font-style: normal;
+  text-align: center;
+  margin-bottom: -2px;
+}
+.sumary-panel h3{
+  font-style: normal;
+  text-align: center;
+}
+
+.sumary-panel hr {
+  width:20%;
+  margin:0 auto;
+}
+
+#canvas-container {
+  width: 100%;
+  text-align:center;
+}
+
+ 
+#headerCanvas {
+  display: inline;
+
+ 
+ }
+ div.countrySelected{
+   padding: 10px;
+   border: 0.5px solid #40291C;
+  border-radius: 4px;
+	background-color: #88C1F2;
+}
+
+ #selCountry{
+  background-color: #fac934;
+  width: 120px !important;
+}
+
+.countrySelected h6{
+  color: #40291C;
+}
+
+div.side-panel{
+  margin-top: 10px;
+}
+
+.panel-heading {
+  border-color: #88C1F2;
+  padding: 10px;
+}
+.panel-primary>.panel-heading{
+  margin-top: 20px;
+  font-size: 10px;
+  background-color: #88C1F2;
+  border-color:#e3e3e3; 
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.panel-body {
+  background-color: #fac934;
+  padding: 20px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.axis-text{
+  font-size: 14px;
+  font-style: normal;
+  color: #40291C;
+}
+
+.axis{
+  color:#40291C;
+}
+
+.aText {
+  font-family:  Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-anchor: middle;
+}
+
+.active {
+  font-weight: bold;
+  fill: #40291C;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  padding: 3px;
+  font: 10px sans-serif;
+  text-align: center;
+  background: white;
+  border: 0;
+  border-radius: 10px;
+}
+
+.geoMapCountries{
+  padding-top: 0px;
+  padding-bottom: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.geomap-title{
+  padding-bottom: 30px;
+  font-family:  Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #40291C;
+  font-style: bold;
+}
+
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%; /* Set the fixed height of the footer here */
+  height: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  text-align: center;
+  background-color: #88C1F2;
+}
+
+#footer p {
+  margin: 0;
+  font-size: 16px;
+  color:#40291C;
+}
+
+
+
+.info
+{
+      padding: 6px 6px;
+      font: 13px/16px Verdana, Geneva, sans-serif;
+      background: white;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 10px;
+  }
+
+.legend {
+    line-height: 17px;
+    padding:12px;
+    color: #555;
+    }
+
+.legend i {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+  }
+
+
+.circle {
+  float: left;
+  border: 1px solid #222;
+  border-radius: 50%;
+  }
+
+.legend .colorcircle {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin-top: 0px;
+  }
+  
+.legend .circlepadding {
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.85);
+}
+
+
+
